@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900&subset=latin-ext');
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.img-resp {
+    width: 100%;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1200px;
+    padding: 0 15px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+
+/* HEADER */
+
+header {
+    padding: 10px 0;
+}
+
+header .container {
+    width: 80%;
+}
+
+header .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .top_logo {
+    width: 200px;
+}
+
+header .top_nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header .top_nav ul li {
+    display: inline-block;
+    margin-left: 35px;
+}
+
+header .top_nav ul a {
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 17px;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+header .top_nav ul a:after {
+    content: '';
+    background: #000;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: scale(0);
+    transition: all 0.3s;
+}
+
+header .top_nav ul li.active a:after {
+    transform: scale(1);
+}
+
+header .top_nav ul a:hover:after {
+    transform: scale(1);
+}
+
+
+/* BIG BG */
+
+.big_bg {
+    background: url(../images/big_bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    height: 750px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.big_bg .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(../images/02.png);
+}
+
+.big_bg h1 {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 42px;
+    font-weight: 300;
+    position: relative;
+    z-index: 2;
+    letter-spacing: 2px;
+}
+
+.big_bg h1 span {
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+
+/* MAIN */
+
+main h2 {
+    letter-spacing: 3px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 300;
+}
+
+main h2 span {
+    font-size: 25px;
+}
+
+main .text_wrap p {
+    text-indent: 5%;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+main .text_wrap img {
+    display: inline-block;
+}
+
+
+/* HOME GALLERY */
+
+.home_gallery_head h4 {
+    margin-top: 80px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 34px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.home_gallery {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.home_gallery .image {
+    width: 15%;
+}
+
+.home_gallery .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.2s;
+}
+
+.home_gallery .image img:hover {
+    transform: scale(1.05);
+}
+
+
+/* FOOTER */
+
+footer {
+    background: rgb(34, 32, 32);
+    padding: 15px 0 10px;
+    border-top: 5px solid rgb(20, 20, 20);
+}
+
+footer .footer_copy {
+    text-align: right;
+}
+
+footer .footer_copy span {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ffffff;
+    font-weight: 300;
+}
+
+
+/* SUB */
+
+.big_bg.small {
+    height: 120px;
+    background: url(../images/img_7.jpg) no-repeat;
+    background-position-y: 78%;
+    background-size: cover;
+}
+
+.sub footer {
+    margin-top: 40px;
+}
+
+
+/* OFFER */
+
+.offer_wrap {
+    display: flex;
+}
+
+.offer_wrap .left_col {
+    width: 30%;
+    padding-right: 20px;
+}
+
+.offer_wrap .right_col {
+    width: 70%;
+}
+
+.offer_wrap .left_col .head span {
+    text-transform: lowercase;
+    font-weight: 300;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    letter-spacing: 6px;
+    margin-top: 50px;
+}
+
+.offer_wrap .left_col ul {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.offer_wrap .left_col ul a {
+    color: #000;
+    font-size: 16px;
+    display: block;
+    padding: 15px 5px 8px 20px;
+    border-bottom: 1px solid rgb(182, 182, 182);
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: all 0.4s;
+}
+
+.offer_wrap .left_col ul li.active a {
+    border-bottom: 1px solid #000;
+    font-weight: 600;
+}
+
+.offer_wrap .left_col ul li a:hover {
+    border-bottom: 1px solid #000;
+}
+
+.offer main h2 {
+    margin-bottom: 15px;
+}
+
+.offer main h3 {
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 3px;
+    font-size: 19px;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+}
+
+.offer main p {
+    letter-spacing: 1px;
+    text-indent: 10%;
+    line-height: 25px;
+    text-align: justify;
+}
+
+
+/* CONTACT FORMS */
+
+.contact main h2 {
+    margin-bottom: 60px;
+}
+
+.contact main .wrap {
+    display: flex;
+}
+
+.contact main .left_col {
+    width: 50%;
+}
+
+.contact main .right_col {
+    width: 50%;
+}
+
+.contact main h4.small_head {
+    font-weight: 300;
+    font-size: 28px;
+    margin: 0 0 30px;
+    text-align: center;
+}
+
+
+/* LEFT CONTACT */
+
+.contact .left_box {
+    text-align: center;
+}
+
+.contact .left_box a {
+    color: #000;
+}
+
+.contact .left_box a:hover {
+    text-decoration: underline;
+}
+
+.contact .left_box span {
+    font-weight: 300;
+    letter-spacing: 4px;
+    font-size: 25px;
+}
+
+.contact .left_box span.small {
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.contact .left_box.visit,
+.contact .left_box.send_mail {
+    margin-top: 60px;
+}
+
+.contact .left_box address {
+    font-style: normal;
+}
+
+
+/* RIGHT CONTACT */
+
+.contact main .forms .form label {
+    display: block;
+    font-size: 19px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-left: 10px;
+}
+
+.contact main .forms .form .inpu {
+    width: 100%;
+    margin: 10px 0;
+    height: 39px;
+    border: 1px solid #5f5f5f;
+    padding: 0 25px;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #5f5f5f;
+    font-family: 'Lato', sans-serif;
+}
+
+.contact main .forms .form textarea.inpu {
+    height: auto;
+    padding: 25px;
+}
+
+.contact main .forms .form .btn {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    border: 1px solid #5f5f5f;
+    background: rgba(0, 0, 0, 0);
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.contact main .forms .form .btn:hover {
+    border: 1px solid #000;
+    padding: 10px 35px;
+}
+
+.contact #map {
+    background: url(../images/map.png) no-repeat;
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    margin-top: 45px;
+    border-top: 1px solid rgb(114, 114, 114);
+    border-bottom: 1px solid rgb(114, 114, 114);
+}
+
+/* Gallery */
+
+.gallery_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.gallery_wrap .image {
+    width: 30%;
+    margin-bottom: 40px;
+}
+
+.gallery_wrap .image:nth-child(odd)  {
+    height: 550px;
+}
+
+.gallery_wrap .image:nth-child(even) {
+    height: 400px;
+
+}
+.gallery_wrap .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
