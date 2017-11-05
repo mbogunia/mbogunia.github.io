@@ -1,0 +1,130 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial';
+}
+
+header {
+    margin-top: 50px;
+}
+
+header .wrap {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+header .wrap .top_logo {
+    margin-right: 10px;
+}
+
+nav ul {
+    padding: 20px 0 10px 20px;
+    margin: 0;
+    list-style-image: url(../images/znaczek.png);
+}
+
+nav ul li {
+    float: left;
+    margin-right: 40px;
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+.main {
+    padding: 10px;
+    background: linear-gradient(to bottom, #499bea 0%, #0c3c70 78%, #0c3c70 100%);
+    color: #fff;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+
+.main .main_image {
+    margin-right: 40px;
+}
+
+.main .main_text h4 {
+    margin: 10px 0;
+}
+
+.main .main_text p {
+    font-size: 14px;
+}
+
+.mid {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.mid .left_col {
+    background: #fbdf93;
+    width: 18%;
+}
+
+.mid .left_col .box {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 5px 30px 0;
+    margin-bottom: 5px;
+}
+
+.mid .mid_col {
+    background: #fbdf93;
+    width: 52%;
+}
+
+.mid .right_col {
+    background: #fbdf93;
+    width: 28%;
+}
+
+.mid h3 {
+    border-bottom: 1px dotted #0f55a1;
+    display: block;
+    font-size: 25px;
+}
+
+.mid .news h4 {
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.mid .news .data {
+    font-size: 10px;
+}
+
+.mid .news p {
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+footer .footer_wrap {
+    background: #093f7a;
+    color: #fff;
+    padding: 5px 20px;
+    margin-top: 20px;
+}
+footer span {
+    font-size: 11px;
+}
