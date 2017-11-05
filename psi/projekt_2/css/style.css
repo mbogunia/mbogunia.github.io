@@ -36,6 +36,7 @@ nav ul {
     padding: 20px 0 10px 20px;
     margin: 0;
     list-style-image: url(../images/znaczek.png);
+    overflow: hidden;
 }
 
 nav ul li {
