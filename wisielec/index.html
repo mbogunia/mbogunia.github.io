@@ -1,0 +1,190 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <style>
+            #buttons_wrap button {
+                cursor: pointer;
+                margin: 5px;
+                width: 50px;
+            }
+            #answer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between
+            }
+            #answer .answer-letter {
+                width: 55px;
+                height: 55px;
+                border-bottom: 2px solid rgb(59, 59, 59);
+                text-align: center;
+                font-size: 40px;
+            }
+            #answer .answer-letter.space {
+                border-bottom: none;
+            }
+            #buttons_wrap {
+                margin-top: 50px;
+            }
+            #wisielec_wrap {
+                position: relative;
+            }
+            .wisielec-1 {
+                width: 70px;
+                height: 5px;
+                position: absolute;
+                background: #000;
+                top: 280px;
+                left: 110px;
+            }
+            .wisielec-2 {
+                position: absolute;
+                width: 9px;
+                background: #000;
+                height: 200px;
+                left: 141px;
+                top: 80px;
+            }
+            .wisielec-3 {
+                height: 6px;
+                position: absolute;
+                width: 120px;
+                background: #000;
+                top: 74px;
+                left: 141px;
+            }
+            .wisielec-4 {
+                position: absolute;
+                background: #000;
+                width: 80px;
+                height: 7px;
+                transform: rotate(-45deg);
+                top: 102px;
+                left: 131px;
+            }
+            .wisielec-5 {
+                position: absolute;
+                background: #000;
+                width: 2px;
+                height: 50px;
+                left: 231px;
+                top: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1 class="display-3">Wisielec</h1>
+            </header>
+            <section>
+                <div id="question"></div>
+
+                <div id="answer"></div>
+                <div class="row">
+                    <div class="col-md-7">
+                            <div id="buttons_wrap"></div>
+                    </div>
+                    <div class="col-md-5">
+                        <div id="wisielec_wrap">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="again" style="display: none">
+                    <button class="btn">Zagraj ponownie</button>
+                </div>
+            </section>
+        </div>   
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // ZMIENNE PUBKTOWE
+                points = 0;
+                errors = 0;
+
+                //Rywosnaie przycisków
+                alfabet = ['A', 'Ą', 'B', 'C', 'C', 'D', 'E', 'Ę', 'F', 'G' , 'H', 'I', 'J', 'K', 'L', 'Ł', 'M', 'N', 'Ń', 'O', 'Ó', 'P', 'R', 'S', 'Ś', 'T', 'U', 'W', 'Y', 'Z', 'Ź', 'Ż'];
+                $.each(alfabet,function(index, value) {
+                    $('#buttons_wrap').append('<button class="btn btn-secondary btn-lg">'+value+'</button>');
+                });
+
+                // baza pytan
+                base = {
+                    "0":["Kto jest wielki?", "Matijas Wielki"],
+                };
+
+                //Wysietl losowe pytanie            
+                item = base[Math.floor(Math.random()*Object.keys(base).length)];
+
+                $('#question').append('<h5 class="display-4 text-center">'+item[0]+'</h5');
+                answer = item[1].split("");
+                
+                // Odpowiedzi na duże
+                $.each(answer,function(index, value) {
+                    answer[index] = value.toUpperCase();
+                });
+
+                // Licznik poprawnych odpoiwdzi do zdobycia
+                answer_unique = [];
+                $.each(answer, function(i, el){
+                    if($.inArray(el, answer_unique) === -1 && $.inArray(el, " ") === -1) {
+                        answer_unique.push(el);
+                    }
+                });
+                answer_count = answer_unique.length;
+                
+                // Budowa pól odpowiedzi
+                $.each(answer,function(index, value) {
+                    if(value == ' ') {
+                        $('#answer').append('<div class="answer-letter space"></div>');
+                    } else {
+                        $('#answer').append('<div class="answer-letter" data-value="'+value+'"></div>')
+                    }
+                });
+                
+                //Obsługa button   
+                $('#buttons_wrap button').click(function() {
+                    $(this).attr('disabled', true);
+                    letter = $(this).html();
+
+                    if($.inArray(letter, answer) != -1) {
+                        $(this).addClass('btn-success');                        
+                        $.each($('#answer > div'),function(){
+                            if($(this).data('value') == letter)
+                            {
+                                $(this).append(letter);
+                            }                            
+                        });
+                        points++;
+                    } else {
+                        $(this).addClass('btn-danger');  
+                        errors++;   
+                        $("#wisielec_wrap").append('<div class="wisielec-'+errors+'"></div>');  
+                    }
+                    
+
+                    if (points == answer_count) {
+                        $('#buttons_wrap').empty();
+                        $('#buttons_wrap').append('<p class="text-success display-2 text-center">Wygrałeś</p>');
+                    }
+                    if (errors == 5) {
+                        $('#buttons_wrap').empty();
+                        $('#buttons_wrap').append('<p class="text-danger display-2 text-center">Przegrałeś</p>');
+                        $('#again').show();
+                    }
+                });
+
+                // ZAGRAJ PONOWNIE                
+                $('#again button').click(function() {
+                    location.reload();
+                });
+
+            });
+        </script>        
+    </body>
+    </html>
