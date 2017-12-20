@@ -4,31 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
-    <style>
-        .wrap {
-            position: relative;
-        }
-        .overlay {
-            position: absolute;
-            bottom: 0;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 999;
-        }
-        img {
-            margin: 0 auto;
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css/style.css">
+    <title>Document</title>
 </head>
 <body>
+    <header class="head">
+        <div class="head__back">
+            <div class="head__logo">
+                <img src="images/logo_2.png" alt="">
+            </div>
+        </div>
+    </header> 
 
-    <div class="wrap">
-        <div class="overlay"></div>
-        <img src="layout.jpg" alt="">
-    </div>
-    
+ 
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        alp = 0.005;
+        x = '';
+        y = '';
+        $('.head__back').mousemove(function(e){
+            if(x == '') x = e.pageX;
+            offX = e.pageX - x;
+
+            if(y == '') y = e.pageY;
+            offY = e.pageY - y;
+
+            newX = offX * alp;
+            newY = offY * alp;
+            
+            $(this).find('img').css('left', newX +'px');
+            
+            $(this).find('img').css('top', newY +'px');
+        });
+
+    </script>  
 </body>
 </html>
