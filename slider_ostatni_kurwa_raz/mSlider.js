@@ -1,5 +1,10 @@
 
-var mSlider = function(container) {
+var mSlider = function(container, options) {
+
+    var settings = {
+        arrow : false,
+        thumbnail : false,
+    };
 
     var slider = container;
     var slides = $(slider).find('img').wrapAll('<div class="slider_wrap">');
@@ -69,18 +74,23 @@ var mSlider = function(container) {
         });
     }
 
-    this.constructor = function(container) {
+    this.constructor = function(container, options) {
         this.slider = container;
+        $.extend(settings, options);
 
         startSlider();
 
-        drawArrows();
-        drawThumbnail();
+        if(options.arrow) {
+            drawArrows();
+        }
+        if(options.thumbnail) {
+            drawThumbnail();
+        }
 
         sliderWork();
     }
 
-    this.constructor(container);
+    this.constructor(container, options);
 
-    console.log(thumbs);
+    console.log(settings);
 }
