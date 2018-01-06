@@ -1,0 +1,59 @@
+html, body {
+  margin: 0;
+  padding: 0; }
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url(images/whirlpool.png); }
+
+.mSlider {
+  width: 60%;
+  height: 60%;
+  margin: 0 auto;
+  position: relative; }
+  .mSlider .slider_wrap {
+    position: relative; }
+    .mSlider .slider_wrap img {
+      object-fit: cover;
+      max-width: 100%;
+      max-height: 100%; }
+  .mSlider .slider_arrows .arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 99;
+    opacity: 0.1;
+    transition: opacity 0.3s; }
+    .mSlider .slider_arrows .arrow.next {
+      right: 0;
+      left: auto;
+      background: url(images/next.png) no-repeat;
+      background-position: center center; }
+    .mSlider .slider_arrows .arrow.prev {
+      left: 0;
+      right: auto;
+      background: url(images/prev.png) no-repeat;
+      background-position: center center; }
+  .mSlider:hover .slider_arrows .arrow {
+    opacity: 0.8; }
+  .mSlider .slider_thumbnail {
+    margin-top: 10px; }
+    .mSlider .slider_thumbnail img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+      margin-right: 5px;
+      opacity: 0.7;
+      transition: opacity 0.3s; }
+      .mSlider .slider_thumbnail img:hover {
+        opacity: 0.9; }
+
+/*# sourceMappingURL=style.css.map */
